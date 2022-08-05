@@ -22,7 +22,7 @@ export class AppComponent {
   //const getName = () => "hi"
   //const getName = (name: string, lastName: string) => lastName
 
-  //const mult = mu, => num*2
+  //const mult = num => num*2
   private mult(num: any) {
     return num;
   }
