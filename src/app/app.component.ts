@@ -12,13 +12,31 @@ export class AppComponent {
     console.log('hi');
 
     const auxMap = [1, 2, 3, 4, 5].map((num) => num * 2);
-    console.log('auxMap: ' + auxMap);
+    console.log('auxMap: ', auxMap);
 
     const auxForEach = [1, 2, 3, 4, 5].forEach((num) => num * 2);
-    console.log('auxForEach: ' + auxForEach);
+    console.log('auxForEach: ', auxForEach);
 
     const auxFind = [1, 2, 3, 4, 5].find((num) => num === 3);
-    console.log('auxFind: ' + auxFind);
+    console.log('auxFind: ', auxFind);
+
+    const auxFindIndex = [1, 2, 3, 4, 5].findIndex((num) => num === 5);
+    console.log('auxFindIndex: ', auxFindIndex);
+
+    const auxIndexOf = [1, 2, 3, 4, 5].indexOf(1);
+    console.log('auxIndexOf: ', auxIndexOf);
+
+    const auxIndexOfString = 'Hola Mundo Test'.indexOf('Test');
+    console.log('auxIndexOfString: ', auxIndexOfString);
+
+    const auxFilter = [1, 2, 3, 4, 5].filter((num) => num % 2 === 0);
+    console.log('auxFilter: ', auxFilter);
+
+    const auxJoin = [1, 2, 3, 4, 5].join('-');
+    console.log('auxJoin: ', auxJoin);
+
+    const auxSplit = 'hola, mundo, test'.split(', ');
+    console.log('auxSplit', auxSplit);
   }
 
   private getName(name: string): string {
