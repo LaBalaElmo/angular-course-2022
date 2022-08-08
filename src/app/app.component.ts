@@ -35,5 +35,41 @@ export class AppComponent {
 
     const auxValues = Object.values(auxJSON);
     console.log('auxValues: ', auxValues)
+
+    const a = 1;
+    console.log('CONST', a);
+
+    for(let i = 1; i <= 5; i++){
+      //console.log('INDEX', i);
+    }
+    for(let i = 1; i <= 5; i++){
+      //console.log('INDEX', i);
+    }
+    for(let i = 1; i <= 5; i++){
+      console.log('INDEX', i);
+    }
+
+    const b = [1,2,3,4,5,6]
+    const c = [...b, 7, 8, 9]
+    console.log('SPREAD: ', c)
+
+    //REST OPERATOR
+    this.getREST(1, 2, 'hola');
+
+    const person = {
+      id: 1,
+      name: 'JUAN',
+      country: {
+        idCountry: 1,
+        cod: 'LP'
+      }
+    }
+    const {country} = person;
+    console.log('country: ', country);
+
+  }
+
+  getREST(...params: any[]){
+    console.log('REST: ', params);
   }
 }
