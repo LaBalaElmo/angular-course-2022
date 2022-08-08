@@ -67,7 +67,33 @@ export class AppComponent {
     const {country} = person;
     console.log('country: ', country);
 
+
+    const data = {
+      0: {
+        id: 1,
+        name: 'juan',
+        age: 24
+      },
+      1: {
+        id: 2,
+        name: 'maria',
+        age: 10
+      }
+    }
+
+    //Convertir a array y obtener la sume de edades
+    const resp = Object.values(data).reduce((prev, value)=> prev + value.age, 0);
+    console.log('resp: ', resp);
+
+    //Convertir a un array filtrar las personas mayores a 10, mostrar solo los IDS
+    //RESULTADO: [2]
+
+    const resp2 = Object.values(data).filter(element => element.age > 10).map(element => element.id);
+
+    console.log(resp2)
+
   }
+
 
   getREST(...params: any[]){
     console.log('REST: ', params);
