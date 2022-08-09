@@ -1,5 +1,5 @@
-<app-person [nametest]="title" lastName="'test'" [age]="0"></app-person>
+<app-person [nametest]="title" lastName="'test'" [age]="0" (print)="getPrint($event)" )></app-person>
 
-<app-person nametest="Juan" lastName="Perez" [age]="25"></app-person>
+<app-person nametest="Juan" lastName="Perez" [age]="25" (print)="getPrint($event)"></app-person>
 
-<app-person nametest="Maria" lastName="Perez" [age]="20"></app-person>
+<app-person nametest="Maria" lastName="Perez" [age]="20" (print)="getPrint($event)"></app-person>
