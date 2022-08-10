@@ -20,4 +20,12 @@ export class AppComponent {
     console.log('HI PARENT COMPONENT: ', event)
     this.person = event;
   }
+
+  getLastName(event: any): void {
+    console.log('last name: ', event)
+  }
+
+  printName(name: any){
+    console.log('name: ', name.value)
+  }
 }
