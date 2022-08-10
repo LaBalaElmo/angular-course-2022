@@ -11,8 +11,8 @@ export class AppComponent {
   title = 'test';
   public person?: IPerson;
 
-  getPrint(event: IPerson) {
-    console.log(event)
+  getPrint(event: IPerson, idPerson?: string) {
+    console.log('HI PARENT COMPONENT: ', event)
     this.person = event;
   }
 }

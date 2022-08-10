@@ -3,8 +3,18 @@ import {IPerson} from "./person.model";
 
 @Component({
   selector: 'app-person',
-  templateUrl: './person.component.html',
-  styleUrls: ['./person.component.scss']
+  template: `
+  <div class="border-person">
+  <p>NAME: {{name}}</p>
+  <p>LAST NAME: {{lastName}}</p>
+  <p>AGE: {{age}}</p>
+  <button (click)="onPrint()">Print</button>
+  </div>`,
+  styles: [
+    `.border-person {
+      border: 3px solid red
+    }`
+  ]
 })
 export class PersonComponent implements OnInit {
 
