@@ -10,6 +10,9 @@ export class Test1Component implements OnInit, OnChanges {
   @Input() name!: string;
   @Input() lastName: string = 'Perez';
 
+  public middleName: string = '';
+  public generalData: string = '';
+
   constructor() {
     console.log('constructor')
   }
@@ -24,6 +27,11 @@ export class Test1Component implements OnInit, OnChanges {
 
   ngOnInit(): void {
     console.log('on init')
+  }
+
+  ngDoCheck(): void {
+    console.log('Do Check')
+    this.generalData = this.name + ' ' + this.lastName + ' ' + this.middleName
   }
 
 }
