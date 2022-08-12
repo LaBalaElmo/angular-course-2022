@@ -23,3 +23,12 @@
   </app-person>
 </div>
 
+<input type="number" [(ngModel)]="level" >
+
+<div [ngSwitch]="level">
+  <p *ngSwitchCase="1">nivel es 1</p>
+  <p *ngSwitchCase="2">nivel es 2</p>
+  <p *ngSwitchCase="3">nivel es 3</p>
+  <p *ngSwitchDefault>opcion por defecto</p>
+</div>
+
