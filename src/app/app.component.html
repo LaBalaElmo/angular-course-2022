@@ -10,5 +10,16 @@
   <button>Cancel</button>
 </app-person>
 
+<p *ngIf="enablePerson; else testElse"> enablePerson es true</p>
 
+<ng-template #testElse>
+  <p>enablePerson es false</p>
+</ng-template>
+
+<div *ngFor="let item of ['a', 'b', 'c', 'd', 'e']; let i = index;">
+  <app-person [name]="item">
+    <p>Hola - {{item}} - index {{i}}</p>
+    <button>hola {{item}}</button>
+  </app-person>
+</div>
 
