@@ -1,5 +1,5 @@
 import {Component, OnInit, DoCheck, AfterContentInit, AfterContentChecked,
-  AfterViewChecked, AfterViewInit, Input} from '@angular/core';
+  AfterViewChecked, AfterViewInit, OnDestroy,Input} from '@angular/core';
 
 @Component({
   selector: 'app-person',
