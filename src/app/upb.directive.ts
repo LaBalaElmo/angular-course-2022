@@ -3,9 +3,15 @@ import {Directive, Input, OnChanges, OnInit, SimpleChanges, TemplateRef, ViewCon
 @Directive({
   selector: '[upb]'
 })
-export class UpbDirective implements OnInit,OnChanges{
+export class UpbDirective implements OnInit{
 
-  @Input() upb: boolean = true;
+  @Input() set upb(value: boolean) {
+    if(value){
+      this.viewContainer.createEmbeddedView(this.templateRef)
+    }else {
+      this.viewContainer.clear()
+    }
+  };
 
   constructor(
     private templateRef: TemplateRef<any>,
@@ -20,12 +26,12 @@ export class UpbDirective implements OnInit,OnChanges{
     }*/
   }
 
-  ngOnChanges(changes: SimpleChanges) {
+  /*ngOnChanges(changes: SimpleChanges) {
     if(changes['upb'] && changes['upb'].currentValue){
       this.viewContainer.createEmbeddedView(this.templateRef)
     }else {
       this.viewContainer.clear()
     }
-  }
+  }*/
 
 }

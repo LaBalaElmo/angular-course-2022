@@ -18,4 +18,7 @@ export class TestComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  get name(){ return ''}
+  set name(value: string){ this._message = value + '-' }
+
 }
