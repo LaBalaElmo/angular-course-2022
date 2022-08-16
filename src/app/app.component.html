@@ -8,6 +8,13 @@
   <p>Mostrar datos 2</p>
 </ng-container>
 
-<div *upb="true">
+<input type="checkbox" [(ngModel)]="sw">show
+
+<div *upb="sw" style="border: 3px solid red">
   mi propia directiva
 </div>
+
+<input type="text" [(ngModel)]="title">
+<app-test [message]="title">
+
+</app-test>
