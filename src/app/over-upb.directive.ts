@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Input, OnInit } from '@angular/core';
+import {Directive, ElementRef, EventEmitter, HostListener, Input, OnInit, Output} from '@angular/core';
 
 @Directive({
   selector: '[overUpb]'
@@ -6,6 +6,22 @@ import { Directive, ElementRef, Input, OnInit } from '@angular/core';
 export class OverUpbDirective implements OnInit {
 
   @Input() overUpb!: string;
+  @Output() sendMessage = new EventEmitter<any>()
+
+  @HostListener('mouseenter') onMouseEnter(){
+    this.element.nativeElement.style.backgroundColor = 'red';
+  }
+
+  @HostListener('mouseleave', ['$event']) onMouseLeave(event: any){
+    this.element.nativeElement.style.backgroundColor = 'green';
+    console.log('event al salir', event)
+    this.sendMessage.emit({
+      id:0,
+      text: 'saliste del elemento',
+      x: event.x,
+      y: event.y
+    })
+  }
 
   constructor(private element: ElementRef) {
 
