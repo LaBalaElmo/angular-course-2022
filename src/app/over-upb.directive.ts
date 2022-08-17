@@ -1,12 +1,19 @@
-import {Directive, ElementRef} from '@angular/core';
+import { Directive, ElementRef, Input, OnInit } from '@angular/core';
 
 @Directive({
   selector: '[overUpb]'
 })
-export class OverUpbDirective {
+export class OverUpbDirective implements OnInit {
+
+  @Input() overUpb!: string;
 
   constructor(private element: ElementRef) {
-    this.element.nativeElement.style.backgroundColor = 'red';
+
+  }
+
+  ngOnInit(){
+    console.log(this.element)
+    this.element.nativeElement.style.backgroundColor = this.overUpb;
   }
 
 }
