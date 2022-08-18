@@ -8,6 +8,8 @@ import {Component, ElementRef, ViewChild} from '@angular/core';
 export class AppComponent {
   title = 'test';
 
+  data = {id: 1, name: 'maria', lastName: 'perez'}
+
   @ViewChild('myText', {static: false}) myText!: ElementRef;
 
   send(data: any){
