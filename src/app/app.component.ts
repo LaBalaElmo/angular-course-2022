@@ -7,7 +7,7 @@ import { BehaviorSubject } from 'rxjs';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'test';
+  title = 'test'; 
 
   products$ = new BehaviorSubject([
     {nombre: "polera", talla: 13, stock: 12, tipo: "calor"},
@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
     {nombre: "guantes", talla : 75, stock: 5, tipo: "calor"}
   ])
 
-
+  
   constructor(){
 
   }
