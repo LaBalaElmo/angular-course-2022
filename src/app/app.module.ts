@@ -7,12 +7,14 @@ import { AutosComponent } from './autos/autos.component';
 import {CommonModule} from "@angular/common";
 import {FormsModule} from "@angular/forms";
 import { ShowIDDirective } from './show-id.directive';
+import { PricePipe } from './price.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     AutosComponent,
-    ShowIDDirective
+    ShowIDDirective,
+    PricePipe
   ],
   imports: [
     BrowserModule,

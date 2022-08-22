@@ -13,6 +13,11 @@ export class AppComponent {
   usados: any
   nuevos: any
 
+  totalNuevoBS = 0;
+  totalNuevo$ = 0;
+  totalUsadoBS = 0;
+  totalUsado$ = 0;
+
   constructor() {
     this.data = data;
     this.nuevos = Object.values(data.data).filter(item => item.category === 'sale');

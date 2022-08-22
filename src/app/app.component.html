@@ -1,10 +1,12 @@
 <p>1P 2022</p>
 <p>AUTOS NUEVOS</p>
-<p>TOTAL BS: </p>
-<p>TOTAL $: </p>
+<p>TOTAL BS: {{totalNuevoBS}}</p>
+<p>TOTAL $: {{totalNuevo$}}</p>
+
+
 <div class="container_items" >
   <div *ngFor="let i of nuevos">
-    <app-autos [type]="i.type" [color]="i.color" [capacity]="i.capacity" [create_date]="i.createDate" [price]="i.price" [money_type]="i.moneyType" [category]="i.category">
+    <app-autos [type]="i.type" [color]="i.color" [capacity]="i.capacity" [create_date]="i.createDate" [price]="i.price" [money_type]="i.moneyType" [category]="i.category" [timeType]="i.timeType">
 
     </app-autos>
   </div>
@@ -12,8 +14,8 @@
 </div>
 
 <p>AUTOS USADOS</p>
-<p>TOTAL BS: </p>
-<p>TOTAL $: </p>
+<p>TOTAL BS: {{totalUsadoBS}}</p>
+<p>TOTAL $: {{totalNuevo$}}</p>
 <div class="container_items" >
   <div *ngFor="let i of usados">
     <app-autos [type]="i.type" [color]="i.color" [capacity]="i.capacity" [create_date]="i.createDate" [price]="i.price" [money_type]="i.moneyType" [category]="i.category">
