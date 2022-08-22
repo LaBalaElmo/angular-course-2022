@@ -1,0 +1,15 @@
+<div class="container" [ngStyle]="{'background-color': colorBackground}" >
+  <div style="border: solid yellow 3px;" *ngIf="!isButtonEnabled">
+    No Disponible
+  </div>
+  <p>Type: {{type | uppercase}}</p>
+  <p>Color: {{colorBackground}}</p>
+  <p>Capacity: {{capacity}}</p>
+  <p>Create Date: {{create_date | date : 'dd/MM/yy'}}</p>
+  <p>Price: {{price}} {{money_type === 'USD'? '$' : 'Bs'}}</p>
+  <div *ngFor="let i of color">
+    <button (click)="colorBackground = i" [ngStyle]="{'background-color': i}" > {{i}}</button>
+  </div>
+  <button (click)="isButtonEnabled = false" [disabled]="!isButtonEnabled" >{{category === 'sale'? 'BUY' : 'RENT'}}</button>
+
+</div>
