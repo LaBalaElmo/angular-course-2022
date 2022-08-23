@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'test';
+  data = [1,2,3,4,5,6,7,8,9]
 
   constructor() {
     console.log('-----------------PURE')
