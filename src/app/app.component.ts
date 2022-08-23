@@ -25,6 +25,9 @@ export class AppComponent {
     console.log(this.nuevos)
   }
 
+  getEvent(event: any){
+    event.type === 'USD'? this.totalNuevo$+=event.amount: this.totalUsadoBS += event.amount
+  }
 
 
 }

@@ -34,11 +34,16 @@ export class AutosComponent implements OnInit {
   timeType: string = '';
 
   @Output()
-  money!: EventEmitter<Number>;
+  money!: EventEmitter<any>;
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  emitMoney(amount: any){
+    this.isButtonEnabled = false;
+    this.money.emit({amount: amount, type: this.money_type})
   }
 
 }

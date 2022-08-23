@@ -15,10 +15,10 @@
 
 <p>AUTOS USADOS</p>
 <p>TOTAL BS: {{totalUsadoBS}}</p>
-<p>TOTAL $: {{totalNuevo$}}</p>
+<p>TOTAL $: {{totalUsado$}}</p>
 <div class="container_items" >
   <div *ngFor="let i of usados">
-    <app-autos [type]="i.type" [color]="i.color" [capacity]="i.capacity" [create_date]="i.createDate" [price]="i.price" [money_type]="i.moneyType" [category]="i.category">
+    <app-autos [type]="i.type" [color]="i.color" [capacity]="i.capacity" [create_date]="i.createDate" [price]="i.price" [money_type]="i.moneyType" [category]="i.category" (money)="getEvent($event)">
 
     </app-autos>
   </div>

@@ -11,6 +11,6 @@
   <div *ngFor="let i of color">
     <button (click)="colorBackground = i" [ngStyle]="{'background-color': i}" > {{i}}</button>
   </div>
-  <button (click)="isButtonEnabled = false" [disabled]="!isButtonEnabled" >{{category === 'sale'? 'BUY' : 'RENT'}}</button>
+  <button (click)="emitMoney($event)" [disabled]="!isButtonEnabled" >{{category === 'sale'? 'BUY' : 'RENT'}}</button>
 
 </div>
