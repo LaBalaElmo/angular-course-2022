@@ -8,21 +8,15 @@ import {View2Component} from "./dashboard/view2/view2.component";
 const routes: Routes = [
   {
     path: 'login',
-    component: LoginComponent
+    loadChildren: () => import('./login/login.module').then( m =>
+      m.LoginModule
+    )
   },
   {
     path: 'dashboard',
-    component: DashboardComponent,
-    children: [
-      {
-        path: 'view1',
-        component: View1Component
-      },
-      {
-        path: 'view2',
-        component: View2Component
-      }
-    ]
+    loadChildren: () => import('./dashboard/dashboard.module').then( m =>
+      m.DashboardModule
+    )
   }
 ];
 
