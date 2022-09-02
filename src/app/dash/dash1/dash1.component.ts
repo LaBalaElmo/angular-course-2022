@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {SingletonService} from "../../singleton.service";
 
 @Component({
   selector: 'app-dash1',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Dash1Component implements OnInit {
 
-  constructor() { }
+  message: string = '';
+
+  constructor(private singletonService: SingletonService) { }
 
   ngOnInit(): void {
+  }
+
+  sendMessage(){
+    this.singletonService.setMessage(this.message)
+    console.log(this.singletonService.getMessage())
   }
 
 }

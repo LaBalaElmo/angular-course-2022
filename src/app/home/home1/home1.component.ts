@@ -17,7 +17,7 @@ export class Home1Component implements OnInit {
 
   sendToken(){
     this.singletonService.setToken(this.token)
-
+    console.log(this.singletonService.getToken())
   }
 
 }

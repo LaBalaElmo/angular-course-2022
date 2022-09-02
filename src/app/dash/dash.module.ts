@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Dash1Component } from './dash1/dash1.component';
 import { Dash2Component } from './dash2/dash2.component';
 import {RouterModule, Routes} from "@angular/router";
+import {FormsModule} from "@angular/forms";
 
 const routes: Routes = [
   {
@@ -20,9 +21,10 @@ const routes: Routes = [
     Dash1Component,
     Dash2Component,
   ],
-  imports: [
-    CommonModule,
-    RouterModule.forChild(routes)
-  ]
+    imports: [
+        CommonModule,
+        RouterModule.forChild(routes),
+        FormsModule
+    ]
 })
 export class DashModule { }

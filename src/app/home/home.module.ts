@@ -7,11 +7,11 @@ import {FormsModule} from "@angular/forms";
 
 const routes: Routes = [
   {
-    path: 'hom1',
+    path: 'home1',
     component: Home1Component
   },
   {
-    path: 'hom2',
+    path: 'home2',
     component: Home2Component
   },
   {

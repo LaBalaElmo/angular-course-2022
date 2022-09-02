@@ -7,14 +7,15 @@ import {SingletonService} from "../../singleton.service";
   styleUrls: ['./b1.component.scss']
 })
 export class B1Component implements OnInit {
+  token: string = '';
 
   constructor(private singletonService: SingletonService) { }
 
   ngOnInit(): void {
   }
 
-  getToken(){
-    console.log(this.singletonService.getToken())
+  async getToken() {
+    this.token =  this.singletonService.getToken()
   }
 
 }
