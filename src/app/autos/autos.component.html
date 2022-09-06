@@ -1,0 +1,18 @@
+<div class="container" [ngStyle]="{'background-color': colorBackground}" (showID)="showId = $event">
+  <div style="border: solid yellow 3px;" *ngIf="!isButtonEnabled">
+    No Disponible
+  </div>
+
+  <div *ngIf="showId">id: {{id}}</div>
+
+  <p>Type: {{type | uppercase}}</p>
+  <p>Color: {{colorBackground}}</p>
+  <p>Capacity: {{capacity}}</p>
+  <p>Create Date: {{create_date | date : 'dd/MM/yy'}}</p>
+  <p>Price: {{price | price : money_type : timeType}}</p>
+  <div *ngFor="let i of color">
+    <button (click)="buttonColor(i)" [ngStyle]="{'background-color': i}" > {{i}}</button>
+  </div>
+  <button (click)="emitMoney()" [disabled]="!isButtonEnabled" >{{category === 'sale'? 'BUY' : 'RENT'}}</button>
+
+</div>
