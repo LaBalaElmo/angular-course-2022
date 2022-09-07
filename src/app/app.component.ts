@@ -37,7 +37,13 @@ export class AppComponent implements OnInit{
           if(item.category === 'sale'){
             this.totalNuevo[item.moneyType] = this.totalNuevo[item.moneyType] + item.price
           }
-          if(item.category === 'rental'){
+
+        }
+      })
+
+      this.usados.forEach(item => {
+        if(item.status === 'disable') {
+          if (item.category === 'rental') {
             this.totalUsado[item.moneyType] = this.totalUsado[item.moneyType] + item.price
           }
         }
