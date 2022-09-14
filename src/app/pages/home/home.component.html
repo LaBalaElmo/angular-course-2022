@@ -16,15 +16,14 @@
     </button>
   </div>
   <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
-    <div class="text-sm lg:flex-grow">
-      <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
-        Docs
+    <div class="text-sm lg:flex-grow" *ngIf="!openPanel">
+      <a (click)="onOpenSidePanel()" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+        open Side Panel
       </a>
-      <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
-        Examples
-      </a>
-      <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
-        Blog
+    </div>
+    <div class="text-sm lg:flex-grow" *ngIf="openPanel">
+      <a (click)="onCloseSidePanel()" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+        close Side Panel
       </a>
     </div>
     <div>
@@ -39,13 +38,40 @@
 
 <mat-drawer-container class="example-container" autosize>
 
-  <p>CONTENIDO</p>
-  <button class="btn" (click)="onOpenSidePanel()">open Side Panel</button>
-  <p>---</p>
-  <button class="btn" (click)="onCloseSidePanel()">close Side Panel</button>
+  <div class=" clase-custom-xd" *ngFor="let item of torneos">
+    <div style="width: 30rem; background-color: white;">
+      <a href="#">
+        <img class="rounded-t-lg" src="{{'https://i.pinimg.com/originals/44/f7/7b/44f77b3781f42897589951132bbcfc55.png'}}" alt="">
+      </a>
+      <div class="p-5" style="background-color: #e3e3e3">
+        <a href="#">
+          <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">From {{item.startDate | date: 'dd/MM/yyyy'}} to {{item.endDate | date: 'dd/MM/yyyy'}}</h5>
+        </a>
+        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{item.title}}</p>
+      </div>
+    </div>
+  </div>
 
-  <mat-drawer class="example-sidenav" mode="side" [position]="'end'" [opened]="openPanel">
-    <p>FORMULARIO</p>
+
+  <mat-drawer style="background-color: white" class="example-sidenav" mode="side" [position]="'end'" [opened]="openPanel">
+
+    <form [formGroup]="addTournament">
+      <div class="mb-6">
+        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Name's Tournament</label>
+        <input type="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="" [formControlName]="'title'">
+      </div>
+      <div class="mb-6">
+        <label for="dateFrom" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Date from</label>
+        <input type="date" id="dateFrom" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="" [formControlName]="'from'">
+      </div>
+      <div class="mb-6">
+        <label for="dateTo" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Date to</label>
+        <input type="date" id="dateTo" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="" [formControlName]="'to'">
+      </div>
+
+      <button type="submit" (click)="createTournament()" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+    </form>
+
   </mat-drawer>
 
 </mat-drawer-container>

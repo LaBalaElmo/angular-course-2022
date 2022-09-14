@@ -19,25 +19,16 @@ export class AuthComponent implements OnInit {
     }*/
   }
 
-  onLogin() {
-    this.authService.login({
-      email: 'test@test.com',
-      password: 'Solomeo11',
-      returnSecureToken: true
-    }).subscribe(res => {
-      console.log('RESPONSE: ', res)
-      this.router.navigate(['home'])
-    })
+  onLogin(login: any) {
+    if (login.valid) {
+      this.authService.login({
+        email: login.value.username,
+        password: login.value.password,
+        returnSecureToken: true
+      }).subscribe(res => {
+        console.log('RESPONSE: ', res)
+        this.router.navigate(['home'])
+      })
+    }
   }
-
-  onCreate() {
-    this.authService.createUser({
-      email: 'test2@test.com',
-      password: '123456',
-      returnSecureToken: true
-    }).subscribe(res => {
-      console.log('CREATE USER: ', res)
-    })
-  }
-
 }

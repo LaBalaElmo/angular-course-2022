@@ -11,6 +11,7 @@ import {StoreModule} from "@ngrx/store";
 import {reducers} from "./redux";
 import {StoreDevtoolsModule} from "@ngrx/store-devtools";
 
+
 const routes: Routes = [
   {
     path: '', pathMatch: 'full', redirectTo: 'login'
@@ -24,6 +25,10 @@ const routes: Routes = [
     path: 'home',
     loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule),
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'register',
+    loadChildren: () => import('./pages/register/register.module').then(m => m.RegisterModule),
   }
 ];
 

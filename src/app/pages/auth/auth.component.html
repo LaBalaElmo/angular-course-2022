@@ -10,11 +10,10 @@
                   <img
                     class="mx-auto w-48"
                     src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
-                    alt="logo"
-                  />
+                    alt="logo">
                   <h4 class="text-xl font-semibold mt-1 mb-12 pb-1">We are The Lotus Team</h4>
                 </div>
-                <form>
+                <form #login="ngForm">
                   <p class="mb-4">Please login to your account</p>
                   <div class="mb-4">
                     <input
@@ -22,15 +21,33 @@
                       class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                       id="exampleFormControlInput1"
                       placeholder="Username"
-                    />
+                      name="username"
+                      ngModel
+                      #userName="ngModel"
+                      required
+                    >
+                  </div>
+                  <div *ngIf="userName.invalid && (userName.touched || userName.dirty)">
+                    <span style="color: red" *ngIf="userName.errors!['required']">
+                      Name is required.
+                    </span>
                   </div>
                   <div class="mb-4">
                     <input
                       type="password"
                       class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                      id="exampleFormControlInput1"
+                      id="exampleFormControlInput2"
                       placeholder="Password"
-                    />
+                      name="password"
+                      ngModel
+                      #password="ngModel"
+                      required
+                    >
+                    <div *ngIf="password.invalid && (password.touched || password.dirty)">
+                    <span style="color: red" *ngIf="password.errors!['required']">
+                      Password is required.
+                    </span>
+                    </div>
                   </div>
                   <div class="text-center pt-1 mb-12 pb-1">
                     <button
@@ -47,11 +64,10 @@
                           #b44593
                         );
                       "
-                      (click)="onLogin()"
+                      (click)="onLogin(login)"
                     >
                       Log in
                     </button>
-                    <a class="text-gray-500" href="#!">Forgot password?</a>
                   </div>
                   <div class="flex items-center justify-between pb-6">
                     <p class="mb-0 mr-2">Don't have an account?</p>
@@ -60,8 +76,9 @@
                       class="inline-block px-6 py-2 border-2 border-red-600 text-red-600 font-medium text-xs leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
                       data-mdb-ripple="true"
                       data-mdb-ripple-color="light"
+                      routerLink="/register"
                     >
-                      Danger
+                      Register
                     </button>
                   </div>
                 </form>
